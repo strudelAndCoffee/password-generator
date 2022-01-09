@@ -30,18 +30,81 @@ var symbol = function() {
   return sym;
 };
 
-
-
-
-
-
 document.getElementById("generate").onclick = clicked;
 
 function clicked() {
+  
   if (clicked) {
-    random();
+
+    var range = 0;
+    var lowerCaseLetters = true;
+    var upperCaseLetters = true;
+    var numbers = true;
+    var symbols = true;
+    var criteria = [range, lowerCaseLetters, upperCaseLetters, numbers, symbols];
+
+    let answerRange = window.prompt("How long would you like your password to be? You may select at least 8 and at most 128 characters.");
+    answerRange = parseInt(answerRange);
+
+    if (answerRange >= 8 && answerRange <= 128) {
+      sessionStorage.setItem("range", answerRange);
+      getLowerCase();
+    } else {
+      window.alert("Sorry, please input a number from 8 to 128");
+      clicked();
+    }
+
+    function getLowerCase() {
+
+      let answerLowerCase = window.confirm("Would you like your password to include lowercase letters?");
+      if (!answerLowerCase) {
+        lowerCaseLetters = false;
+        getUpperCase();
+      } else {
+        getUpperCase();
+      }
+    }
+
+    function getUpperCase() {
+
+      let answerUpperCase = window.confirm("Would you like it to include uppercase letters?");
+      if (!answerUpperCase) {
+        upperCaseLetters = false;
+        getNumbers();
+      } else {
+        getNumbers;
+      }
+    }
+
+    function getNumbers() {
+
+      let answerNumbers = window.confirm("Would you like it to include numbers?");
+      if (!answerNumbers) {
+        numbers = false;
+        getSymbols();
+      } else {
+        getSymbols();
+      }
+    }
+
+    function getSymbols() {
+
+      let answerSymbols = window.confirm("Would you like it to include symbols?");
+      if (!answerSymbols) {
+        symbols = false;
+        generatePassword();
+      } else {
+        generatePassword();
+      }
+    }
+
+    function generatePassword() {
+      window.alert("Your password has been created!");
+      window.alert(criteria);
+    }
   }
 };
+
 
 // Write password to the #password input
 //function writePassword() {
