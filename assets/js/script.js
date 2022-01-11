@@ -186,11 +186,7 @@ function generatePassword() {
     }
 
     shuffleArray(characters);
-
-    // Converts array of randomized and shuffled characters to a single string
-    for (var i = 0; i < (characters.length - 1); i++) {
-      passwordString = passwordString + characters[i];
-    }
+    passwordString = characters.join("");
   }
   selectCharacters();
   window.alert("Your password has been created!");
