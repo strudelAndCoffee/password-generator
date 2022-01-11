@@ -1,6 +1,6 @@
 # 03 JavaScript: Password Generator
 
-This application was developed by the University of Texas Code Boot Camp for use in one weekly challenges from the course.
+This application was developed by the University of Texas Code Boot Camp for use in one of the weekly challenges from the course.
 All HTML and CSS code was provided by the University of Texas.
 The 'script.js' file was developed by Stephen Trudell.
 
