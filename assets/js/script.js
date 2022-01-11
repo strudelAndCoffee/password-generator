@@ -90,13 +90,16 @@ var character = {
 function generatePassword() {
   // Prompt for password length
   var answerRange = window.prompt("How long would you like your password to be? You may select at least 8 and at most 128 characters.");
-  answerRange = parseInt(answerRange);
-
-  if (answerRange >= 8 && answerRange <= 128) {
-    sessionStorage.setItem("range", answerRange);
+  if (answerRange === null) {
+    return;
   } else {
-    window.alert("Sorry, please input a number from 8 to 128");
-    generatePassword();
+    answerRange = parseInt(answerRange);
+    if (answerRange >= 8 && answerRange <= 128) {
+      sessionStorage.setItem("range", answerRange);
+    } else {
+      window.alert("Sorry, please input a number from 8 to 128");
+      generatePassword();
+    }
   }
 
   // Prompts for character selection
